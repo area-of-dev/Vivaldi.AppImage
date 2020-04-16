@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Vivaldi Web Browser
+Comment=Access the Internet
+Exec=AppRun %U
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=icon
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;application/x-mimearchive;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Vivaldi
+StartupNotify=true
