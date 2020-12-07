@@ -21,22 +21,22 @@ all:  clean
 	wget --output-document=$(PWD)/build/build.rpm https://downloads.vivaldi.com/stable/vivaldi-stable-3.4.2066.106-1.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "LD_LIBRARY_PATH=\$${LD_LIBRARY_PATH}:\$${APPDIR}/vivaldi" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "export LD_LIBRARY_PATH=\$${LD_LIBRARY_PATH}" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "UUC_VALUE=`cat /proc/sys/kernel/unprivileged_userns_clone 2> /dev/null`" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "if [ -z \"\$${UUC_VALUE}\" ]" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "    then" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "        exec \$${APPDIR}/vivaldi/vivaldi --no-sandbox \"\$${@}\"" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "    else" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "        exec \$${APPDIR}/vivaldi/vivaldi \"\$${@}\"" >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo "    fi" >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'LD_LIBRARY_PATH=$${LD_LIBRARY_PATH}:$${APPDIR}/vivaldi' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'export LD_LIBRARY_PATH=$${LD_LIBRARY_PATH}' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'UUC_VALUE=`cat /proc/sys/kernel/unprivileged_userns_clone 2> /dev/null`' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'if [ -z "$${UUC_VALUE}" ]' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '    then' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '        exec $${APPDIR}/vivaldi/vivaldi --no-sandbox "$${@}"' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '    else' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '        exec $${APPDIR}/vivaldi/vivaldi "$${@}"' >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo '    fi' >> $(PWD)/build/Boilerplate.AppDir/AppRun
 
 	cp --force --recursive $(PWD)/build/opt/vivaldi/* $(PWD)/build/Boilerplate.AppDir/vivaldi
 	
