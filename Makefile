@@ -14,11 +14,9 @@ PWD:=$(shell pwd)
 all:  clean
 
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/vivaldi	
+	apprepo --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0
 
-	apprepo --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libglib2.0-0 shared-mime-info libffi7 libselinux1 libpango-1.0-0 \
-											libgdk-pixbuf2.0-0 librsvg2-2 adwaita-icon-theme libgtk-3-0 libncurses5 libncurses6 gsettings-desktop-schemas
-
-	wget --output-document=$(PWD)/build/build.rpm https://downloads.vivaldi.com/stable/vivaldi-stable-3.4.2066.106-1.x86_64.rpm
+	wget --output-document=$(PWD)/build/build.rpm https://downloads.vivaldi.com/snapshot/vivaldi-snapshot-3.5.2115.71-1.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
 	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
