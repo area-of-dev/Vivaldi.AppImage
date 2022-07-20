@@ -15,7 +15,7 @@ PWD:=$(shell pwd)
 
 all: clean init
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/vivaldi	
-	$(PWD)/bin/Apprepo.AppImage --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0
+	$(PWD)/bin/Apprepo.AppImage --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0 libwayland-cursor0
 
 	wget --output-document="$(PWD)/build/build.deb" https://downloads.vivaldi.com/stable/vivaldi-stable_5.1.2567.66-1_amd64.deb
 	dpkg -x $(PWD)/build/build.deb $(PWD)/build
